@@ -43,16 +43,11 @@ jobs:
         with:
           name: java-app
 
-      - name: azure login
-        uses: Azure/login@v1
-        with:
-             creds: ${{ secrets.AZURE_SUBSCRIPTION }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'javaspringgithub'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8C163131CEA94785AECA1B79812C370D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A85F9FF11480438D9A540565C22784F3 }}
           package: '*.jar'
