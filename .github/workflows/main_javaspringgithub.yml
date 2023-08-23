@@ -20,7 +20,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '11'
-
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+                path: ~/.m2/repository
+                key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
       - name: Build with Maven
         run: mvn clean install
       - name: List the files
